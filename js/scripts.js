@@ -5,11 +5,18 @@ $(document).ready(function() {
     const sideC = parseFloat($("input#sideThree").val())
     let result;
 
-    if (sideA === sideB && sideB === sideC) {
-      result = "Equilateral";
-    } else if (sideA === sideB || sideB === sideC || sideA === sideC){
-      result = "Isosceles";
+    if (sideA+sideB > sideC && sideB+sideC > sideA && sideA+sideC > sideB) {
+      if (sideA === sideB && sideB === sideC) {
+        result = "Equilateral";
+      } else if (sideA === sideB || sideB === sideC || sideA === sideC){
+        result = "Isosceles";
+      } else {
+        result = "Scalene";
+      }
+    } else {
+      result = "Non";
     }
+    
 
     $(".result").text(result);
     $(".answer").show();
